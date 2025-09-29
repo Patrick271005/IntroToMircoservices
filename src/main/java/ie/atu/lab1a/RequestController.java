@@ -29,5 +29,14 @@ public class RequestController {
     {
         return "Name : " + name + " Age : " + age;
     }
+    @GetMapping("/person")
+    public Person getPerson(){
+        return new Person("Patrick",19);
+    }
+
+    //EXCERCISE
+
+
+
 }
 //request parametr 1 have to return json to do create a cal class then contains operation and total. string=operation double=total
