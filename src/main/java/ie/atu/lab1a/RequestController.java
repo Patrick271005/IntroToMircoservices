@@ -36,6 +36,35 @@ public class RequestController {
 
     //EXCERCISE
 
+    @GetMapping("/calculate")
+    public Calculator calculate(
+            @RequestParam double num1,
+            @RequestParam double num2,
+            @RequestParam String operation){
+        double total;//holds result of calculation
+        switch (operation){
+            case "add":
+                total = num1 + num2;
+                break;
+                case "subtract":
+                    total = num1 - num2;
+                    break;
+                    case "multiply":
+                        total = num1 * num2;
+                        break;
+                        case "divide":
+                            total = num1 / num2;
+                            if(num2 == 0)//handles / by 0 error
+                            {
+                                System.out.println("Division by zero");}
+                            break;
+                            default:
+                                total = 0;
+                                break;
+        }
+        return new Calculator(operation,total);
+    }
+
 
 
 }
